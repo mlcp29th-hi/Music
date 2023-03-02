@@ -5,12 +5,13 @@
 //  Created by 吳承翰 on 2023/2/25.
 //
 
-import Foundation
+import UIKit
 
 struct Track: Decodable {
     let id: Int
     let name: String
     let artworkURL: URL?
+    var artworkImage: UIImage? = nil
     
     let artistName: String
     let artistViewURL: URL
