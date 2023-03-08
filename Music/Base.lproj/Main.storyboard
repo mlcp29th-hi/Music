@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,6 +105,60 @@
                                     <outlet property="trackNameLabel" destination="UI9-De-aBB" id="LsX-Ck-nwI"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackLoadingTableViewCell" id="lUF-km-ssg" customClass="TrackLoadingTableViewCell" customModule="Music" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="170.33333587646484" width="393" height="120.33333587646484"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lUF-km-ssg" id="P7F-lp-pRM">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="120.33333587646484"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-kW-bCN">
+                                            <rect key="frame" x="10" y="10" width="373" height="100.33333333333333"/>
+                                            <subviews>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="KiH-tE-k0b">
+                                                    <rect key="frame" x="161.66666666666666" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="L7R-4s-ktN"/>
+                                                        <constraint firstAttribute="width" constant="50" id="xRi-JI-VLX"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xB-cD-2cp">
+                                                    <rect key="frame" x="145.33333333333334" y="50" width="82.333333333333343" height="34.666666666666657"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Retry">
+                                                        <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="default"/>
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="loadTracks" destination="1bf-A5-p5h" eventType="touchUpInside" id="Ubt-VK-UA7"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-6F-XNC">
+                                                    <rect key="frame" x="0.0" y="84.666666666666671" width="373" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sZS-6F-XNC" firstAttribute="leading" secondItem="Syo-kW-bCN" secondAttribute="leading" id="Cek-OL-ivr"/>
+                                                <constraint firstAttribute="trailing" secondItem="sZS-6F-XNC" secondAttribute="trailing" id="e8G-fn-PWv"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Syo-kW-bCN" secondAttribute="trailing" constant="10" id="UHg-Cs-gw4"/>
+                                        <constraint firstAttribute="bottom" secondItem="Syo-kW-bCN" secondAttribute="bottom" constant="10" id="Wkn-XG-mVh"/>
+                                        <constraint firstItem="Syo-kW-bCN" firstAttribute="leading" secondItem="P7F-lp-pRM" secondAttribute="leading" constant="10" id="dig-4x-sft"/>
+                                        <constraint firstItem="Syo-kW-bCN" firstAttribute="top" secondItem="P7F-lp-pRM" secondAttribute="top" constant="10" id="sNY-W0-S3g"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="KiH-tE-k0b" id="07d-IH-XT0"/>
+                                    <outlet property="errorMessageLabel" destination="sZS-6F-XNC" id="ZNh-rj-gYv"/>
+                                    <outlet property="retryButton" destination="0xB-cD-2cp" id="9or-85-6bS"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="1bf-A5-p5h" id="VLv-jT-xUd"/>
@@ -136,10 +191,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="music.mic" catalog="system" width="128" height="119"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
