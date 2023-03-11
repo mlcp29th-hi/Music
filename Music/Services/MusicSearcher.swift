@@ -18,4 +18,15 @@ class MusicSearcher {
         }
         return MusicSearchResult(count: 0, tracks: [])
     }
+    
+    func lookup(trackID: Int) async throws -> MusicSearchResult {
+        if let url = URL(string: "https://itunes.apple.com/lookup?id=\(trackID)") {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let result = try decoder.decode(MusicSearchResult.self, from: data)
+            return result
+        }
+        return MusicSearchResult(count: 0, tracks: [])
+    }
 }

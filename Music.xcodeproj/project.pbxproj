@@ -18,6 +18,7 @@
 		5D55BA6729B061F0009EA91C /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA6629B061F0009EA91C /* TrackTableViewCell.swift */; };
 		5D55BA6929B0C410009EA91C /* MusicSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA6829B0C410009EA91C /* MusicSearcher.swift */; };
 		5D55BA6B29B1B303009EA91C /* TrackLoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */; };
+		5D608E5D29B9687A008BCF33 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5D55BA6629B061F0009EA91C /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		5D55BA6829B0C410009EA91C /* MusicSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearcher.swift; sourceTree = "<group>"; };
 		5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLoadingTableViewCell.swift; sourceTree = "<group>"; };
+		5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +52,8 @@
 		5D0E6C4729A9F6C90062FA52 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5D55BA6829B0C410009EA91C /* MusicSearcher.swift */,
-				5D0E6C4829A9F6F50062FA52 /* MusicSearchResult.swift */,
 				5D49432829A9C37B00795E88 /* Track.swift */,
+				5D0E6C4829A9F6F50062FA52 /* MusicSearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -78,16 +79,42 @@
 			children = (
 				5D49431429A9C16E00795E88 /* AppDelegate.swift */,
 				5D49431629A9C16E00795E88 /* SceneDelegate.swift */,
-				5D49431829A9C16E00795E88 /* TrackTableViewController.swift */,
-				5D55BA6629B061F0009EA91C /* TrackTableViewCell.swift */,
-				5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */,
+				5D907F9229BCC01500941EFA /* Controllers */,
+				5D907F9329BCC02100941EFA /* Views */,
 				5D49431A29A9C16E00795E88 /* Main.storyboard */,
 				5D0E6C4729A9F6C90062FA52 /* Models */,
+				5D907F9429BCC0BA00941EFA /* Services */,
 				5D49431D29A9C17600795E88 /* Assets.xcassets */,
 				5D49431F29A9C17600795E88 /* LaunchScreen.storyboard */,
 				5D49432229A9C17600795E88 /* Info.plist */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		5D907F9229BCC01500941EFA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D49431829A9C16E00795E88 /* TrackTableViewController.swift */,
+				5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5D907F9329BCC02100941EFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D55BA6629B061F0009EA91C /* TrackTableViewCell.swift */,
+				5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5D907F9429BCC0BA00941EFA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5D55BA6829B0C410009EA91C /* MusicSearcher.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +190,7 @@
 			files = (
 				5D55BA6B29B1B303009EA91C /* TrackLoadingTableViewCell.swift in Sources */,
 				5D49431929A9C16E00795E88 /* TrackTableViewController.swift in Sources */,
+				5D608E5D29B9687A008BCF33 /* TrackDetailViewController.swift in Sources */,
 				5D55BA6729B061F0009EA91C /* TrackTableViewCell.swift in Sources */,
 				5D49431529A9C16E00795E88 /* AppDelegate.swift in Sources */,
 				5D49431729A9C16E00795E88 /* SceneDelegate.swift in Sources */,

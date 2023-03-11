@@ -88,6 +88,12 @@ class TrackTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.cellForRow(at: indexPath) is TrackTableViewCell {
+            performSegue(withIdentifier: "showTrackDetail", sender: nil)
+        }
+    }
+    
     @IBAction func loadTracks() {
         loadingStatus = .loading
         searchError = nil
@@ -104,6 +110,15 @@ class TrackTableViewController: UITableViewController {
                 loadingStatus = .failed
                 tableView.reloadData()
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let selectedRow = tableView.indexPathForSelectedRow?.row, selectedRow < tracks.count {
+            let detailViewController = segue.destination as? TrackDetailViewController
+            // According to the home description, using iTunes Lookup API with track id to fetch track info in the detail view.
+            detailViewController?.trackID = tracks[selectedRow].id
+            // detailViewController?.track = tracks[selectedRow]
         }
     }
 }
