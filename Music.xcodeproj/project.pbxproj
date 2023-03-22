@@ -19,6 +19,7 @@
 		5D55BA6929B0C410009EA91C /* MusicSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA6829B0C410009EA91C /* MusicSearcher.swift */; };
 		5D55BA6B29B1B303009EA91C /* TrackLoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */; };
 		5D608E5D29B9687A008BCF33 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */; };
+		5D89364E29C96E530050AA88 /* LoadingStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89364D29C96E530050AA88 /* LoadingStatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5D55BA6829B0C410009EA91C /* MusicSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearcher.swift; sourceTree = "<group>"; };
 		5D55BA6A29B1B303009EA91C /* TrackLoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackLoadingTableViewCell.swift; sourceTree = "<group>"; };
 		5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
+		5D89364D29C96E530050AA88 /* LoadingStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				5D49431829A9C16E00795E88 /* TrackTableViewController.swift */,
 				5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */,
+				5D89364D29C96E530050AA88 /* LoadingStatusViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				5D0E6C4929A9F6F50062FA52 /* MusicSearchResult.swift in Sources */,
 				5D49432929A9C37B00795E88 /* Track.swift in Sources */,
 				5D55BA6929B0C410009EA91C /* MusicSearcher.swift in Sources */,
+				5D89364E29C96E530050AA88 /* LoadingStatusViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SLSGKUJ8FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Music/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -370,6 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SLSGKUJ8FW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Music/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

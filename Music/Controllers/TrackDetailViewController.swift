@@ -17,18 +17,7 @@ class TrackDetailViewController: UIViewController {
             }
         }
     }
-    var searchError: Error? {
-        didSet {
-            if let searchError {
-                retryButton?.isHidden = false
-                errorMessageLabel?.isHidden = false
-                errorMessageLabel?.text = searchError.localizedDescription
-            } else {
-                retryButton?.isHidden = true
-                errorMessageLabel?.isHidden = true
-            }
-        }
-    }
+    
     @IBOutlet var trackNameLabel: UILabel?
     @IBOutlet var artworkImageView: UIImageView?
     @IBOutlet var collectionNameLabel: UILabel?
@@ -38,15 +27,12 @@ class TrackDetailViewController: UIViewController {
     @IBOutlet var artistPreviewButton: UIButton?
     @IBOutlet var collectionPreviewButton: UIButton?
     
-    @IBOutlet var loadingIndicator: UIActivityIndicatorView?
-    @IBOutlet var retryButton: UIButton?
-    @IBOutlet var errorMessageLabel: UILabel?
+    private var loadingStatusViewController: LoadingStatusViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingIndicator?.stopAnimating()
-        retryButton?.isHidden = true
-        errorMessageLabel?.isHidden = true
+        loadingStatusViewController = (children.first { type(of: $0) === LoadingStatusViewController.self } as! LoadingStatusViewController)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadTrack), name: Notification.Name("retryLoading"), object: nil)
         if let track, track.artworkURL != nil, track.previewURL != nil {
             if track.artworkImage == nil {
                 loadArtworkImage()
@@ -81,18 +67,16 @@ class TrackDetailViewController: UIViewController {
     }
     
     @IBAction private func loadTrack() {
-        loadingIndicator?.startAnimating()
+        loadingStatusViewController.startLoadingAnimation()
         Task {
             let searcher = MusicSearcher()
             do {
                 track = try await searcher.lookup(trackID: trackID).tracks.first
             } catch {
-                searchError = error
-                loadingIndicator?.stopAnimating()
+                loadingStatusViewController.stopLoadingAnimation(with: error)
                 return
             }
-            searchError = nil
-            loadingIndicator?.stopAnimating()
+            loadingStatusViewController.stopLoadingAnimation()
             loadArtworkImage()
         }
     }
