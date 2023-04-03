@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class LoadingStatusViewController: UIViewController {
     private var showLoadingAnimation = false {
@@ -36,6 +37,8 @@ class LoadingStatusViewController: UIViewController {
     @IBOutlet private var retryButton: UIButton?
     @IBOutlet private var errorMessageLabel: UILabel?
     
+    let retryLoadingPublisher = PassthroughSubject<Void, Never>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingIndicator?.isHidden = true
@@ -44,6 +47,7 @@ class LoadingStatusViewController: UIViewController {
     }
     
     func startLoadingAnimation() {
+        view.isHidden = false
         showLoadingAnimation = true
         error = nil
     }
@@ -51,9 +55,10 @@ class LoadingStatusViewController: UIViewController {
     func stopLoadingAnimation(with error: Error? = nil) {
         showLoadingAnimation = false
         self.error = error
+        view.isHidden = true
     }
     
     @IBAction private func requestRetryLoading() {
-        NotificationCenter.default.post(name: Notification.Name("retryLoading"), object: nil)
+        retryLoadingPublisher.send()
     }
 }

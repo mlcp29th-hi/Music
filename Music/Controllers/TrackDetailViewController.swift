@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class TrackDetailViewController: UIViewController {
     var trackID: Int!
@@ -56,14 +55,13 @@ class TrackDetailViewController: UIViewController {
                 return nil
             }
         }()
-        guard let url else { return }
-        let safariViewController = SFSafariViewController(url: url)
-        safariViewController.modalPresentationStyle = .pageSheet
-        if let sheet = safariViewController.sheetPresentationController {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(TrackPreviewViewController.self)") as! TrackPreviewViewController
+        controller.url = url
+        if let sheet = controller.sheetPresentationController {
             sheet.detents = sender == trackPlayButton ? [.medium()] : [.large()]
             sheet.prefersGrabberVisible = true
         }
-        present(safariViewController, animated: true)
+        present(controller, animated: true)
     }
     
     @IBAction private func loadTrack() {

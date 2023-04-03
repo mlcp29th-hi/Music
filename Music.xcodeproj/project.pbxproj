@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D0E6C4929A9F6F50062FA52 /* MusicSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E6C4829A9F6F50062FA52 /* MusicSearchResult.swift */; };
+		5D11E90A29CAE98000B1F47B /* TrackPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11E90929CAE98000B1F47B /* TrackPreviewViewController.swift */; };
 		5D49431529A9C16E00795E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49431429A9C16E00795E88 /* AppDelegate.swift */; };
 		5D49431729A9C16E00795E88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49431629A9C16E00795E88 /* SceneDelegate.swift */; };
 		5D49431929A9C16E00795E88 /* TrackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49431829A9C16E00795E88 /* TrackTableViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		5D0E6C4829A9F6F50062FA52 /* MusicSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchResult.swift; sourceTree = "<group>"; };
+		5D11E90929CAE98000B1F47B /* TrackPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewViewController.swift; sourceTree = "<group>"; };
 		5D49431129A9C16E00795E88 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D49431429A9C16E00795E88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D49431629A9C16E00795E88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				5D49431829A9C16E00795E88 /* TrackTableViewController.swift */,
 				5D608E5C29B9687A008BCF33 /* TrackDetailViewController.swift */,
+				5D11E90929CAE98000B1F47B /* TrackPreviewViewController.swift */,
 				5D89364D29C96E530050AA88 /* LoadingStatusViewController.swift */,
 			);
 			path = Controllers;
@@ -194,6 +197,7 @@
 				5D55BA6B29B1B303009EA91C /* TrackLoadingTableViewCell.swift in Sources */,
 				5D49431929A9C16E00795E88 /* TrackTableViewController.swift in Sources */,
 				5D608E5D29B9687A008BCF33 /* TrackDetailViewController.swift in Sources */,
+				5D11E90A29CAE98000B1F47B /* TrackPreviewViewController.swift in Sources */,
 				5D55BA6729B061F0009EA91C /* TrackTableViewCell.swift in Sources */,
 				5D49431529A9C16E00795E88 /* AppDelegate.swift in Sources */,
 				5D49431729A9C16E00795E88 /* SceneDelegate.swift in Sources */,
