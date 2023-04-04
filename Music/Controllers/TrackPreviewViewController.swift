@@ -39,7 +39,7 @@ class TrackPreviewViewController: UIViewController {
         
         webView.publisher(for: \.estimatedProgress)
             .receive(on: RunLoop.main)
-            .sink { progress in
+            .sink { [unowned self] progress in
                 if progress <= 0.1 {
                     self.progressView.progress = 0.1
                 }
@@ -59,7 +59,7 @@ class TrackPreviewViewController: UIViewController {
         
         webView.publisher(for: \.isLoading)
             .receive(on: RunLoop.main)
-            .sink { isLoading in
+            .sink { [unowned self] isLoading in
                 UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve) {
                     self.progressView.isHidden = !isLoading
                     if isLoading {

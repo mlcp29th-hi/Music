@@ -58,10 +58,10 @@ class TrackTableViewController: UITableViewController {
         } else {
             cell.artworkImageView?.image = UIImage(systemName: "music.note")
             if let artworkURL = tracks[indexPath.row].artworkURL {
-                DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                     URLSession.shared.dataTask(with: URLRequest(url: artworkURL)) { imageData, response, error in
                         if let imageData {
-                            self.tracks[indexPath.row].artworkImage = UIImage(data: imageData)
+                            self?.tracks[indexPath.row].artworkImage = UIImage(data: imageData)
                             DispatchQueue.main.async {
                                 let visibleIndexPaths = tableView.indexPathsForVisibleRows ?? []
                                 if visibleIndexPaths.contains(indexPath) {
