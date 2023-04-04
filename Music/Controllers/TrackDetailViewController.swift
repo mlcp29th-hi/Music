@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class TrackDetailViewController: UIViewController {
     var trackID: Int!
@@ -27,11 +28,16 @@ class TrackDetailViewController: UIViewController {
     @IBOutlet var collectionPreviewButton: UIButton?
     
     private var loadingStatusViewController: LoadingStatusViewController!
+    private var cancellable: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingStatusViewController = (children.first { type(of: $0) === LoadingStatusViewController.self } as! LoadingStatusViewController)
-        NotificationCenter.default.addObserver(self, selector: #selector(loadTrack), name: Notification.Name("retryLoading"), object: nil)
+        cancellable = loadingStatusViewController.retryLoadingPublisher
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in
+                self.loadTrack()
+            }
         if let track, track.artworkURL != nil, track.previewURL != nil {
             if track.artworkImage == nil {
                 loadArtworkImage()
